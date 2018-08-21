@@ -4,7 +4,7 @@ This repo contains a simple library and a test app project which try to provide 
 
 The device that I was mainly targeting with this code was the HoloLens where you do not usually want to provide some media-capture preview because the user already sees the real-world around them and they just want to look at a piece of text and have the HoloLens camera automatically recognise it.
 
-With OCR build into the Universal Windows Platform (see [OcrEngine](https://docs.microsoft.com/en-us/uwp/api/Windows.Media.Ocr.OcrEngine)) it seems natural to use this wherever possible because it provides zero-cost, low-latency results. Because of those features, it is possible to open up the camera and run any number of frames past the OCR engine looking for a match while the user moves their viewpoint around. This is great in that the user doesn't have to provide a single-shot "perfect picture" but, instead, the algorithms can run until some timeout or a result is produced.
+With OCR built into the Universal Windows Platform (see [OcrEngine](https://docs.microsoft.com/en-us/uwp/api/Windows.Media.Ocr.OcrEngine)) it seems natural to use this wherever possible because it provides zero-cost, low-latency results. Because of those features, it is possible to open up the camera and run any number of frames past the OCR engine looking for a match while the user moves their viewpoint around. This is great in that the user doesn't have to provide a single-shot "perfect picture" but, instead, the algorithms can run until some timeout or a result is produced.
 
 However, I have found in recent experiments that the [Azure Computer Vision Text Recognition service](https://docs.microsoft.com/en-us/azure/cognitive-services/Computer-vision/quickstarts/csharp-print-text) can produce better results than the on-device capability in some circumstances. However, the cloud service introduces latency and a cost-per-invocation and so typically can't be invoked with images at 10,20,30 frames per second.
 
@@ -16,7 +16,7 @@ If the match is found then the process ends. Otherwise, after some timeout (whic
 
 However, at this point the library can also return that it has saved the 'best' frame captured from the camera which could then be sent to the cloud for further analysis and it provides an easy API to make that call.
 
-In this library, 'best' is currently defined as the captured frame which the on-device OCR engine found had the largest quantity of text recognised within it.
+In this library, 'best' is currently defined as the captured frame where the on-device OCR engine found had the largest quantity of text recognised within it.
 
 In usage,  the caller first instantiates a **VideoCaptureDeviceFinder** and needs to provide a means via which a single video device can be found. For example;
 
@@ -24,7 +24,7 @@ In usage,  the caller first instantiates a **VideoCaptureDeviceFinder** and need
 var videoCaptureDeviceFinder = new VideoCaptureDeviceFinder();
 
 await videoCaptureDeviceFinder.InitialiseAsync(
-devices => devices.Where(
+	devices => devices.Where(
 	device => device.EnclosureLocation.Panel == Windows.Devices.Enumeration.Panel.Front).Single());
 ```
 
@@ -37,7 +37,7 @@ var mediaFrameSourceFinder = new MediaFrameSourceFinder(videoCaptureDeviceFinder
 
 var filters = new FilterSet()
 	.Append(MediaFrameSourceFinder.VideoPreviewFilter, MediaFrameSourceFinder.ColorFilter)
-          .Append(m => ((m.Width == 1280) && (m.FrameRate >= 30)));
+	.Append(m => ((m.Width == 1280) && (m.FrameRate >= 30)));
                
 await mediaFrameSourceFinder.InitialiseAsync(matchingMediaSourceInfos => matchingMediaSourceInfos.First(), filters);
 ```
@@ -45,8 +45,7 @@ await mediaFrameSourceFinder.InitialiseAsync(matchingMediaSourceInfos => matchin
 With these objects created, the main **DeviceAndCloudOcrScanner** can be spun up by passing it the **MediaFrameSourceFinder** and a regular expression to be found in the OCR'd text;
 
 ```csharp
-var ocrScanner = new DeviceAndCloudOcrScanner(
-	mediaFrameSourceFinder, new Regex(IP_ADDRESS_REGEX));
+var ocrScanner = new DeviceAndCloudOcrScanner(mediaFrameSourceFinder, new Regex(IP_ADDRESS_REGEX));
 ```
 
 and we can ask it to run on the local camera to see if it can find a suitably matching piece of text within a certain timeframe (or forever if you want to use **TimeSpan.FromMilliseconds(-1)**);
@@ -68,7 +67,9 @@ if (matchedResult.ResultType == OcrMatchResult.TimedOutCloudCallAvailable)
 		TimeSpan.FromSeconds(30));
 }
 ```
-The call above is saying "take the best frame that we have from the local OCR engine and send it to the cloud" and we are using a total timeout here of 30 seconds. The Azure Text Recognition API is 2-part API in that it has an endpoint which takes an image and returns a URL.
+The call above is saying "take the best frame that we have from the local OCR engine and send it to the cloud" and we are using a total timeout here of 30 seconds. 
+
+The Azure Text Recognition API is 2-part API in that it has an endpoint which takes an image and returns a URL.
 
 That URL must then be polled for the result of the OCR operation when it is available. Consequently, the **MatchOnCloudAsync** API above takes both a total timeout (30s) along with a "how frequently to poll for an answer" **TimeSpan** which is 5 seconds here.
 
