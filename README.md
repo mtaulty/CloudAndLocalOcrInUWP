@@ -75,3 +75,5 @@ That URL must then be polled for the result of the OCR operation when it is avai
 Again, that API can then return whether it succeeded or not in calling the cloud and, if it succeeded, whether it further succeeded in getting some OCR'd text which matched the regular expression.
 
 All of this is built into the 2D test app in the repo and I've tried this on both PC and on HoloLens where it seems to work 'reasonably' given it's just a sample that was put together fairly quickly. Note that I'd expect it to work from a 3D app on HoloLens too.
+
+Sometime in the future, I'd expect APIs where the cloud provides 'better' or 'different' results to a local engine to all provide some sort of local+cloud fallback type invocation pattern like I've tried to achieve here - it seems like the natural thing to do.
