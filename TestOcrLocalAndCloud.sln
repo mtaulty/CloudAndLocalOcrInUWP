@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestOcrLocalAndCloud", "TestOcrLocalAndCloud\TestOcrLocalAndCloud.csproj", "{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcrScanning", "OcrScanning\OcrScanning.csproj", "{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Debug|ARM.ActiveCfg = Debug|ARM
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Debug|ARM.Build.0 = Debug|ARM
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Debug|ARM.Deploy.0 = Debug|ARM
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Debug|x64.ActiveCfg = Debug|x64
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Debug|x64.Build.0 = Debug|x64
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Debug|x64.Deploy.0 = Debug|x64
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Debug|x86.ActiveCfg = Debug|x86
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Debug|x86.Build.0 = Debug|x86
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Debug|x86.Deploy.0 = Debug|x86
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Release|Any CPU.ActiveCfg = Release|x86
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Release|ARM.ActiveCfg = Release|ARM
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Release|ARM.Build.0 = Release|ARM
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Release|ARM.Deploy.0 = Release|ARM
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Release|x64.ActiveCfg = Release|x64
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Release|x64.Build.0 = Release|x64
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Release|x64.Deploy.0 = Release|x64
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Release|x86.ActiveCfg = Release|x86
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Release|x86.Build.0 = Release|x86
+		{EBBFACA4-9629-481E-AC99-7F0CD0CEE28A}.Release|x86.Deploy.0 = Release|x86
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Debug|ARM.ActiveCfg = Debug|ARM
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Debug|ARM.Build.0 = Debug|ARM
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Debug|x64.ActiveCfg = Debug|x64
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Debug|x64.Build.0 = Debug|x64
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Debug|x86.ActiveCfg = Debug|x86
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Debug|x86.Build.0 = Debug|x86
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Release|ARM.ActiveCfg = Release|ARM
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Release|ARM.Build.0 = Release|ARM
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Release|x64.ActiveCfg = Release|x64
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Release|x64.Build.0 = Release|x64
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Release|x86.ActiveCfg = Release|x86
+		{3CCB31A2-A3EE-4027-AD04-4327B6FB913D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD2EAF7D-8C61-4E72-8EB7-C67555E65779}
+	EndGlobalSection
+EndGlobal
